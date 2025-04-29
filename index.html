@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DIU Result Viewer</title>
+</head>
+<body>
+  <h2>Check DIU Result</h2>
+  <input id="studentId" placeholder="Enter Student ID">
+  <input id="semester" placeholder="Enter Semester (e.g. Spring-2025)">
+  <button onclick="getResult()">Get Result</button>
+  <pre id="output"></pre>
+
+  <script>
+    async function getResult() {
+      const studentId = document.getElementById('studentId').value;
+      const semester = document.getElementById('semester').value;
+      const output = document.getElementById('output');
+
+      output.textContent = "Loading...";
+
+      const res = await fetch(`/api/get-result?studentId=${studentId}&semester=${semester}`);
+      const data = await res.json();
+      output.textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
