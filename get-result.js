@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const apiUrl = `https://studentportal.diu.edu.bd/api/studentresult/GetStudentResult?studentId=${studentId}&semester=${semester}`;
+    const apiUrl = http://studentportal.diu.edu.bd/#/result/GetStudentResult?studentId=${studentId}&semester=${semester}`;
     const response = await fetch(apiUrl);
     const data = await response.json();
 
